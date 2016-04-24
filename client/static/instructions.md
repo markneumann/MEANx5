@@ -1,24 +1,22 @@
 # Required Features:
 
 1. Login and logout.<br>
-1.1 Upon page load, a prompt should appear to ask for the users name and save it as a logged in user  <b>DONE</b><br>
-1.2 Users should be able to log out.  A prompt would then pop up again for the user to be able to log back in. <b>DONE</b>
-2. Display of all of the Doctor's appointments (Date, Time, Patient Name, Complain) with Search feature (patient name and complaint).<b>DONE</b><br>
-2.1 The appointments are arranged from oldest to newest. <b> Added mongo Sort call on the find, which I used before ADDED v4</b><br>
-2.2 Only the appointments for the current and future will be displayed.  (Maybe for Search let them show past?  switch the filter?  Or add?)
-<b>added $gte Date.now filter to the Find ADDED v4</b><br>
-2.3 The logged in user can see all the appointments, but he/she can only delete his/her own appointment. dashboard_controller <b>DONE</b>
-3. Users can add future-dated appointments, but the doctor is limited to accept only 3 appointments per day.
-<b>Would use the mongo count function to first test that all records for a date are less than 3, then provide error</b><br>
-3.1 A specific user can only have 1 appointment scheduled per day (validation should appear when creating/setting up an appointment).
-<b>Likewise use the mongo count function when finding for a user and the date <1 </b><br>
-3.2 Complaint should be at least 10 characters (validation) <b>DONE</b><br>
-3.3 Schedules should only be between 8:00am-5:00pm {pop-up options}
-<b>because I used that angular combo tool for date and time, I need to further explore how to limit the options OR find another tool.</b><br>
-4. User is automatically redirected to the Dashboard after successfully adding a new appointment. The new record should be appended on the table.  <b>DONE</b>
-5. The user can only cancel at least 1 day before the appointment schedule. <b>ADDED v4 this additional date test on the client controlling the appearance of the cancel button</b>
-6. Updating of added/deleted appointments on the dashboard after refreshing the page. <b>DONE</b>
-7. You must be able to deploy your work to Amazon EC2 and provide the IP address or subdomain/domain name to where your work has been deployed. Please note that Heroku deployment is not honored. <b>DONE</b>
+1.1 Upon page load, a prompt should appear to ask for the users name and save it as a logged in user  <b>OPEN</b><br>
+1.2 Users should be able to log out.  A prompt would then pop up again for the user to be able to log back in. <b>OPEN</b>
+2. Dashboard displays the logged user's created bucket list items and the bucket list he was tagged with by other users.<b>OPEN</b><br>
+3. Ability to add a bucket list item. Newly added bucket list item should only appear on the bucket list (profile) of the person who created the item and on the user(s) the said item is being tagged to.
+4. Dashboard, at bucket list add, Tagging of other users. The bucket list item being tagged to the user will be included on the tagged user's bucket lis  <b>OPEN</b>
+   4.1 When user A tags B, the bucket item will automatically append to User B's Bucket list, both users own the bucket item.
+   4.2 Pulldown shows all the other users
+   4.3 Title must be 5 char, description must be 10
+   4.4 List of to-do itmes muchst display
+    4.4.1 Checkbox
+    4.4.2 Title
+    4.4.3 description
+    4.4.4 Date Created
+5. Update of bucket list item status (checked or unchecked) ONLY by the user who created the item or the user who was tagged with the item. Upon update, tagged users should also see a new status.
+6. Updating of added/deleted appointments on the dashboard after refreshing the page. <b>OPEN</b>
+7. You must be able to deploy your work to Amazon EC2 and provide the IP address or subdomain/domain name to where your work has been deployed. Please note that Heroku deployment is not honored. <b>OPEN</b>
 
 # Note:
 
@@ -31,48 +29,54 @@ If you are having trouble uploading files on the Exam App, please DO NOT unlock 
 # Design
 
 ## Partials
-* Login prompt  DONE
-* Dashboard   Need to strip out the time and date
-* New appointment <b>DRAFT</b><br>
-    calendar picker?<br>
+* Login prompt  OPEN
+* Dashboard  <br>
     need area for error messages
 
+* Users list <b>OPEN</b><br>
+    read only<br>
+
 ## Client controllers
-* users_controller ALL <b>DONE</b><br>
+* users_controller ALL <b>OPEN</b><br>
 ** login<br>
 ** logout<br>
-** getUser<br>
 
-* dashboard_controller DRAFT<br>
-** index <b>DONE</b><br>
-** cancel/remove  <b>DONE</b><br>
-
-* appointment_controller DRAFT<br>
-** new_appointment  DONE<br>
-    Merge date and time fields <DONE>
+* dashboard_controller OPEN<br>
+** index for user<b>OPEN</b><br>
+** Add to List <b>OPEN</b><br>
+** Check box done <b>OPEN<b><br>
+** Links to other users lists <b>OPEN<b><br>
+* user_list_controller DRAFT<br>
+** show list  OPEN<br>
 
 
 ## Client factories
-* user_factory  <b>DONE</b><br>
+* user_factory  <b>OPEN</b><br>
 ** new_user <br>
-* appointment_factory  <b>DONE</b><br>
-** index   <b>DONE</b> <br>
-** new_appointment <b>DONE</b><br>
-** cancel_appointment <b>DONE</b><br>
+* bucket_factory  <b>OPEN</b><br>
+** index   <b>OPEN</b> <br>
+** new_list <b>OPEN</b><br>
+** update <b>OPEN</b><br>
+* session_factory<b>OPEN</b><br>
 
 ## Server routes & controllers
-* POST users login  <b>DONE</b>
-* GET appointments index  <b>DONE</b>
-* POST new appointment  (lots of validations) <b>DRAFT, needs validations</b>
-* GET remove appointment <b>DONE</b>
+* POST users login  <b>OPEN</b>
+* GET users index  <b>OPEN</b>
+* GET users show ID  <b>OPEN</b>
+* POST users create
+* PUT users update
+* POST bucketlist create<b>DRAFT, needs validations</b>
+* PUT bucklist update <b>OPEN</b>
 
 ## Models
-* User  <b>DONE</b><br>
-** unique<br>
-** required<br>
+* User  <b>OPEN</b><br>
+** name is unique<br>
+** name is required<br>
+** bucketlists reference to other tabel
 ** create date<br>
 
-* Appointment  STARTED, NEEDS Date work <br>
-** Date/Time must be unique (would be nice to only show available times)<br>
-** Patient Name <b>DONE</b><br>
-** Complaint <b>DONE</b><br>
+* bucketlist   <br>
+** title: required >5 characters
+** desc: required > 10 characters
+** _creator tied back to users
+** created/updated <br>

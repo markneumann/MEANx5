@@ -1,41 +1,24 @@
-<html ng-app="MEAN_app">
-
+<!DOCTYPE html>
+<html lang="en" ng-app = "app">
 <head>
-    <title>Doctors Calendar v4</title>                  /////////////////////
-    <!-- require angular -->
-    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.js"></script> -->
-    <link href="/angular-material/angular-material.css" rel="stylesheet" />
-    <script src='/angular/angular.js'></script>
-    <script src="/angular-route/angular-route.js"></script>
-    <script src="/angular-animate/angular-animate.js"></script>
-    <script src="/angular-aria/angular-aria.js"></script>
-    <script src="/angular-material/angular-material.js"></script>
-    <script src="/angular-messages/angular-messages.js"></script>
-    <script src="/app.js"></script>
-    <script src="/static/js/factories/c_appointment_factory.js"></script>       ///////////
-    <script src="/static/js/factories/c_user_factory.js"></script>              ///////////
-    <script src="/static/js/controllers/c_dashboard_controller.js"></script>    ///////////
-    <script src="/static/js/controllers/c_appointment_controller.js"></script>  //////////
-    <script src="/static/js/controllers/c_user_controller.js"></script>
-    </script>
+  <meta charset="UTF-8">
+  <script src = 'angular/angular.js'></script>
+  <script src = 'angular-route/angular-route.js'></script>  <!--Missing!-->
+  <script src ='angular/app.js'></script>
+<!-- //factories-->
+<script src = 'angular/factories/sessionFactory.js'></script>
+<script src = 'angular/factories/userFactory.js'></script>
+<script src = 'angular/factories/bucketFactory.js'></script>
+<!-- //controllers-->
+  <script src ='angular/controllers/indexController.js'></script>
+  <script src = 'angular/controllers/dashboard.js'></script>
+  <script src = 'angular/controllers/user.js'></script>
 
-    <link rel='stylesheet' href='/static/css/styles.css'>
+  <title>Document</title
+
 
 </head>
-
 <body>
-    <!-- <h1>Doctors Calendar</h1> -->
-
-        <div>
-            <div ng-view="">
-            </div>
-        </div>
-    </div>
-
-<br>
-<br>
-<a href="/static/instructions.html" target="_self">Instructions</a>
+<div ng-view=''></div>
 </body>
-
 </html>
