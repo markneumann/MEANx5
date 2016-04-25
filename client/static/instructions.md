@@ -1,4 +1,4 @@
-# Required Features:
+# Required Features for Bucket Lists:
 
 1. Login and logout.<br>
 1.1 Upon page load, a prompt should appear to ask for the users name and save it as a logged in user  <b>Done</b><br>

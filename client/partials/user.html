@@ -13,7 +13,7 @@
   <span ng-bind = 'bucketlist._creator.name'></span> &nbsp;|&nbsp;
   <span ng-bind = 'bucketlist.title'></span>&nbsp; - &nbsp; <span ng-bind = 'bucketlist.description'> </span> &nbsp;| &nbsp; <span ng-bind = "bucketlist.created_at | date : 'MMM d yyyy'"></span>
 </h4>
-<h2>Pending</h2>
+<h3>Pending</h3>
 <h4 ng-repeat = "bucketlist in user.user.bucketlists | filter:{completed:false}">
   <input type = "checkbox"  ng-model = 'bucketlist.completed' ng-disabled = 'user.suser._id != bucketlist._creator._id' ng-change = 'user.update_bucket(bucketlist._id)'>
   <span ng-bind = 'bucketlist._creator.name'></span> &nbsp;|&nbsp;

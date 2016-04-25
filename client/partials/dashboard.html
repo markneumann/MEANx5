@@ -5,10 +5,7 @@
     </h3>
 </div>
 <hr>
-<div>
-    {{dash.errorArea}}
-    <hr>
-</div>
+
 <h1>Welcome {{dash.user.name}}</h1>
 
 <form ng-model = 'dash.bucketlist'>
@@ -18,7 +15,10 @@
   </select>
   <button ng-click = 'dash.submit_list();'>Submit List</button>
 </form>
-
+<div>
+    {{dash.errorArea}}
+    <hr>
+</div>
 <h3>Before I die I want to:</h3>
 <h4 ng-repeat = "bucketlist in dash.user.bucketlists">
   <input type = "checkbox" ng-click = 'dash.update_bucket(bucketlist._id)' ng-model = 'bucketlist.completed'>
