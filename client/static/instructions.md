@@ -2,7 +2,7 @@
 
 1. Login and logout.<br>
 1.1 Upon page load, a prompt should appear to ask for the users name and save it as a logged in user  <b>Done</b><br>
-1.2 Users should be able to log out.  A prompt would then pop up again for the user to be able to log back in. <b>DRAFT, doesn't use logout call yet.</b>
+1.2 Users should be able to log out.  A prompt would then pop up again for the user to be able to log back in. <b>DONE</b>
 2. Dashboard displays the logged user's created bucket list items and the bucket list he was tagged with by other users.<b>DONE</b><br>
 3. Ability to add a bucket list item. Newly added bucket list item should only appear on the bucket list (profile) of the person who created the item and on the user(s) the said item is being tagged to. <b>DONE</b><br>
 4. Dashboard, at bucket list add, Tagging of other users. The bucket list item being tagged to the user will be included on the tagged user's bucket list  <b>DONE</b><br>

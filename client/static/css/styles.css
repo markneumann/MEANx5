@@ -15,19 +15,6 @@
 #errorArea {
     background-color: yellow;
 }
-#appTable {
-    width: 100%;
-    margin: 4px;
-    border: 1px solid black;
-}
-.datepickerdemoBasicUsage {
-  /** Demo styles for mdCalendar. */ }
-  .datepickerdemoBasicUsage md-content {
-    padding-bottom: 200px; }
-  .datepickerdemoBasicUsage .validation-messages {
-    font-size: 12px;
-    color: #dd2c00;
-    margin: 10px 0 0 25px; }
 .button {
     float: right;
 }
@@ -36,18 +23,6 @@ body {
     font-family: verdana;
     padding: 10px;
     width: 80%;
-}
-th {text-align: left;
-    padding-left: 10px;
-}
-td {
-    padding: 10px;
-}
-tr.d0 td {
-    background-color: #808080; color: black;
-}
-tr.d1 td {
-    background-color: #D3D3D3; color: black;
 }
 textarea {
     width: 100%;
