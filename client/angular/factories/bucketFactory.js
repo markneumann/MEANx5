@@ -3,8 +3,8 @@ app.factory('bucketFactory', ['$http', function($http) {
   bucketFactory.create = function(data, creator, callback){
     data._creator = creator._id;
     $http.post('/bucketlists', data).then(function(newdata){
-      console.log('newdata = ',newdata);
-    if (!newdata.data.errors){
+      console.log('newdata.data.error = ',newdata.data.error);
+    if (!newdata.data.error){
       if (data['users']){
       for (var i = 0; i < data['users'].length; i ++){
           $http.put('/users/'+data['users'][i]._id, newdata.data);
@@ -21,7 +21,7 @@ app.factory('bucketFactory', ['$http', function($http) {
     }
     else {
       console.log('newdata');
-      callback();}
+      callback(newdata.data.error);}
     });
   }
   bucketFactory.update = function(data, callback){

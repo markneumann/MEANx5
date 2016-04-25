@@ -26,7 +26,7 @@ function BucketObj(){
         return;
       }
       data.completed = !data.completed;
-      console.log(data.completed);
+      console.log('mark completed',data.completed);
         //set data properties based on req.body
         // runs save validations
         data.save(function (err, bucketList) {
@@ -37,7 +37,7 @@ function BucketObj(){
             res.json(bucketList);
             return;
           });
-       res.json(data);  //why commented out?
+    //    res.json(data);  //why commented out?
     });
   }
 
